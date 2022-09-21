@@ -2,9 +2,7 @@ package com.karlisson.ordersystem.entities;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
+import java.util.*;
 
 @Entity
 @Table(name = "tb_product")
@@ -20,7 +18,7 @@ public class Product implements Serializable {
     private Double price;
     private String imgUrl;
     @ManyToMany
-    private List<Category> categories = new ArrayList<>();
+    private Set<Category> categories = new HashSet<>();
 
     public Product() {}
 
@@ -72,8 +70,12 @@ public class Product implements Serializable {
         this.imgUrl = imgUrl;
     }
 
-    public List<Category> getCategories() {
+    public Set<Category> getCategories() {
         return categories;
+    }
+
+    public void addCategory(Category category) {
+        categories.add(category);
     }
 
     @Override
