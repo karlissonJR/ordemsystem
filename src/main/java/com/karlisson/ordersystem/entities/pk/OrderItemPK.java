@@ -1,6 +1,7 @@
 package com.karlisson.ordersystem.entities.pk;
 
 import com.karlisson.ordersystem.entities.Order;
+import com.karlisson.ordersystem.entities.OrderItem;
 import com.karlisson.ordersystem.entities.Product;
 
 import javax.persistence.Embeddable;
@@ -8,6 +9,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import java.io.Serializable;
 import java.util.Objects;
+import java.util.Set;
 
 @Embeddable
 public class OrderItemPK implements Serializable {
