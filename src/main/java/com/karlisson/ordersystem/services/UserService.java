@@ -2,6 +2,7 @@ package com.karlisson.ordersystem.services;
 
 import com.karlisson.ordersystem.entities.User;
 import com.karlisson.ordersystem.repositories.UserRepository;
+import com.karlisson.ordersystem.services.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -18,7 +19,7 @@ public class UserService {
     }
 
     public User findById(Long id) {
-        return userRepository.findById(id).get();
+        return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException(id));
     }
 
     public User insert(User user) {
